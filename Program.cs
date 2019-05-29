@@ -26,6 +26,11 @@ namespace Planner
                 Depth = 345566.12,
                 Stories = 99
             };
+            City MistVillage = new City() {
+                _villageName = "Mist Village",
+                _ruler = "Lord Mist",
+                _villageYear = 3123
+            };
 
             Int500Blv.Purchase("John");
             EvanBack.Purchase("Steve Matuszewski");
@@ -35,11 +40,11 @@ namespace Planner
             EvanBack.CreationTime();
             DreamOn.CreationTime();
 
-            List<Building> Property = new List<Building>(){
-                Int500Blv, EvanBack, DreamOn
-            };
+            MistVillage.addBuilding(DreamOn);
+            MistVillage.addBuilding(Int500Blv);
+            MistVillage.addBuilding(EvanBack);
             
-            foreach(Building building in Property){
+            foreach(Building building in MistVillage.villageBuildings){
             Console.WriteLine(building.getAddress());
             Console.WriteLine("-----");
             Console.WriteLine($"Designed by {building.getDesigner()}");
